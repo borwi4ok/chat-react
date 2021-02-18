@@ -1,0 +1,9 @@
+.container {
+  max-height: 100vh;
+  display: grid;
+  row-gap: 15px;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  user-select: none;
+}

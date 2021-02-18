@@ -1,0 +1,25 @@
+.container {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: minmax(100px, 70%) auto;
+  word-wrap: break-word;
+}
+
+.message {
+  line-height: 25px;
+  min-height: 25px;
+  padding: 5px 10px;
+  border: 2px solid rgb(121, 121, 121);
+  border-radius: 15px;
+  background-color: #b8dbd5;
+}
+
+.messageOwner {
+  padding-left: 10px;
+  margin: auto 0;
+  font-weight: 900;
+  color: #4d4d4d;
+}

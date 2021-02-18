@@ -4,4 +4,8 @@ const io = require('socket.io')(4000, {
   },
 })
 
-io.on('connection', (socket) => socket.emit('chat', 'hello'))
+io.on('connection', (socket) => {
+  socket.on('message', (message) => {
+    socket.broadcast.emit('chat-message', message)
+  })
+})

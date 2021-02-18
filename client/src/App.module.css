@@ -1,0 +1,25 @@
+.app {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: minmax(250px, 75%) minmax(140px, 25%);
+}
+
+.leftMainCol {
+  max-height: 100vh;
+  padding: 0 0 0 5%;
+  display: grid;
+  grid-template-rows: 10% auto 10%;
+  background-color: #d8f0f2;
+}
+
+.rightMainCol {
+  background-color: #b8cfdb;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

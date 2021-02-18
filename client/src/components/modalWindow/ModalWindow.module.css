@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.formContainer {
+  width: 40vw;
+  height: 25vh;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 20% auto;
+  background-color: #d8f0f2;
+}
+
+.inputBtnWrapper {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 10px;
+  align-content: center;
+}
+
+.modalInput {
+  padding: 5px 10px;
+}
+
+.modalBtn {
+  font-weight: bold;
+  color: #4d4d4d;
+  background-color: #b8dbd5;
+}
+
+.modalInput,
+.modalBtn {
+  height: 30px;
+  border: 2px solid rgb(121, 121, 121);
+  border-radius: 15px;
+}
+
+.modalInput:focus,
+.modalBtn:focus {
+  outline: none;
+  border: 2px solid #000;
+  transition: border 0.3s;
+}
+
+.modalBtn:active {
+  transition: background-color 0.3s;
+  background-color: #b8cfdb;
+}
