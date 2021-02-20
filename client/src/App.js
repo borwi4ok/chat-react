@@ -9,30 +9,48 @@ import ModalWindow from './components/modalWindow/ModalWindow'
 
 function App() {
   const [message, setMessage] = useState('')
-  const [messages, setAllMessages] = useState([])
 
   const [modalWindowToggle, setModalWindowToggle] = useState(true)
   const [userName, setUserName] = useState('')
+
+  //Kostil'
+  const [chats, setChats] = useState([{ id: 'first chat', messages: [] }])
 
   //connect with server
   useEffect(() => {
     const socket = socketIOClient('http://localhost:4000')
 
-    socket.on('chat-message', (message) => console.log(message))
+    socket.on('chat-message', (messages) => {})
 
     //send to server
-    socket.emit('message', message)
+    socket.emit('send-chat-message', message)
   })
 
   function handleReceivedMessage(value) {
-    setMessage(value)
+    //delete first '/' and replace %20 with ' '
+    const id = window.location.pathname.replace('%20', ' ').slice(1)
 
-    setAllMessages((prev) => [...prev, value])
+    const curChatIndex = chats.findIndex((chat) => chat.id == id)
+
+    setChats((prev) => {
+      //push message to exact chat
+      prev[curChatIndex].messages.push(value)
+
+      return [...prev]
+    })
   }
 
   function getUserName(name) {
     setUserName(name)
-    console.log(name)
+  }
+
+  function setChatId(id) {
+    //add chat in arr of chats
+    setChats((prev) => {
+      const hasChatId = prev.findIndex((chat) => chat.id == id)
+      if (hasChatId == -1) return [...prev, { id: id, messages: [] }]
+      return [...prev]
+    })
   }
 
   return (
@@ -47,12 +65,12 @@ function App() {
           <div className={styles.leftMainCol}>
             <OnlineUsers></OnlineUsers>
 
-            <MessagesBox messages={messages}></MessagesBox>
+            <MessagesBox chats={chats}></MessagesBox>
 
             <SendMessage handleReceivedMessage={handleReceivedMessage}></SendMessage>
           </div>
           <div className={styles.rightMainCol}>
-            <ChatRoomsBox></ChatRoomsBox>
+            <ChatRoomsBox setChatId={(id) => setChatId(id)}></ChatRoomsBox>
           </div>
         </React.Fragment>
       )}

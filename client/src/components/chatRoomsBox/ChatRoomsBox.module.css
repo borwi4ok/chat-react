@@ -7,3 +7,35 @@
   overflow-x: hidden;
   user-select: none;
 }
+
+.addChatRoom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 15px;
+  margin-right: 20px;
+}
+
+.addChatRoomBtn {
+  padding: 5px 10px;
+  font-weight: 700;
+  color: #4d4d4d;
+  background-color: #b8dbd5;
+  position: relative;
+  border: 2px solid rgb(121, 121, 121);
+  border-radius: 13px;
+}
+
+.addChatRoomBtn:hover {
+  transition: background-color 0.3s;
+  background-color: #b8cfdb;
+}
+
+.addChatRoomBtn:active {
+  border: 2px solid #000;
+  transition: border 0.3s;
+}
+
+.addChatRoomBtn:focus {
+  outline: none;
+}

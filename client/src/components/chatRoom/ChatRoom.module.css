@@ -6,6 +6,8 @@
   border: 2px solid rgb(121, 121, 121);
   border-radius: 15px;
   word-break: break-all;
+  color: black;
+  text-decoration: none;
 }
 
 .container:hover {
